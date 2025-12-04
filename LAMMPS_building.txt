@@ -1,0 +1,42 @@
+
+download and install pre requires first through apt 
+
+
+###By treditional make lmp_mpi(needed when extra plugin's cpp and .h file are copied in src directory)
+
+cd /src
+make yes-most
+make ps 
+make mpi -j 16
+
+
+###By cmake lmp
+#************************
+
+cmake -C ../cmake/presets/most.cmake -D BUILD_MPI=yes -D BUILD_OMP=yes -D BUILD_TOOLS=yes -D PKG_MOLECULE=yes -D PKG_KSPACE=yes D PKG_RIGID=yes -D PKG_EXTRA-DUMP=yes -D PKG_EXTRA-FIX=yes  ../cmake
+
+make -j 16
+
+#************************
+
+
+
+
+
+
+
+
+################
+cmake -C ../cmake/presets/most.cmake  ../cmake 
+
+cmake -C ../cmake/presets/most.cmake -D PKG_GPU=on -D GPU_API=cuda -D PKG_OPENMP=yes -D PKG_MOLECULE=yes -D PKG_KSPACE=yes D PKG_RIGID=yes -D PKG_EXTRA-DUMP=yes -D PKG_EXTRA-FIX=yes  ../cmake 
+
+
+-D BUILD_MPI=yes
+-D BUILD_OMP=yes
+-D BUILD_TOOLS=yes
+ 
+ 
+ cmake -C ../cmake/presets/most.cmake -D PKG_GPU=on -D GPU_API=cuda -D BUILD_MPI=yes -D BUILD_OMP=yes -D BUILD_TOOLS=yes -D PKG_MOLECULE=yes -D PKG_KSPACE=yes D PKG_RIGID=yes -D PKG_EXTRA-DUMP=yes -D PKG_EXTRA-FIX=yes  ../cmake
+
+make -j 16
