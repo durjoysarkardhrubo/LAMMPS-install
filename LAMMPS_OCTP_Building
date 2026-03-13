@@ -1,0 +1,15 @@
+
+cd ~/LAMMPS/src
+
+git clone https://github.com/omoultosEthTuDelft/OCTP.git
+
+cp OCTP/*.cpp .
+cp OCTP/*.h .
+
+make yes-most        # install most packages w/o libs'
+make mpi -j8 
+
+ls -l lmp_mpi
+./lmp_mpi -h | grep -i ordern
+./lmp_mpi -h | grep -i position
+./lmp_mpi -h | grep -i rdf
